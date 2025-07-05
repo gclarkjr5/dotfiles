@@ -1,0 +1,79 @@
+theme = "dracula_at_night"
+
+[editor]
+shell = ["nu", "-c"]
+auto-save = true
+color-modes = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal.";"]
+e = ":sh wezterm cli split-pane --left -- broot -dghips"
+k = ":sh wezterm cli split-pane --top-level -- k9s"
+v = ":sh wezterm cli split-pane --right --cwd ."
+h = ":sh wezterm cli split-pane --bottom --cwd ."
+g = ":sh wezterm cli split-pane --right -- gitui"
+r = ":sh inlyne README.md"
+y = ":sh wezterm cli split-pane --left -- yazi"
+o = ":sh wezterm cli split-pane --right -- oatmeal"
+d = ":sh wezterm cli split-pane --bottom -- deepl-tui"
+
+[keys.normal]
+J = ["select_line_below"]
+K = ["select_line_above"]
+H = ["select_mode", "goto_line_start", "exit_select_mode"]
+L = ["select_mode", "goto_line_end", "exit_select_mode"]
+
+"A-j" = "join_selections"
+"A-J" = "join_selections_space"
+
+X = "remove_primary_selection"
+x = "keep_selections"
+"A-x" = "remove_selections"
+
+"C-k" = "goto_file_start"
+"C-j" = "goto_last_line"
+"C-h" = "goto_line_start"
+"C-l" = "goto_line_end"
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+[keys.select]
+J = ["select_line_below"]
+K = ["select_line_above"]
+H = ["goto_line_start"]
+L = ["goto_line_end"]
+
+"A-j" = "join_selections"
+"A-J" = "join_selections_space"
+
+X = "remove_primary_selection"
+x = "keep_selections"
+"A-x" = "remove_selections"
+
+"C-k" = "goto_file_start"
+"C-j" = "goto_last_line"
+"C-h" = "goto_line_start"
+"C-l" = "goto_line_end"

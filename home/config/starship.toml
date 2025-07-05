@@ -1,0 +1,34 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[gcloud]
+format = 'on [$symbol$account(@$domain)(\($project\))(\($active\))]($style) '
+symbol = '️🇬️☁️ '
+
+[gcloud.project_aliases]
+fxei-data-platform-runtime-prd = "runtime-prd"
+fxei-data-platform-sandbox = "sandbox"
+
+[kubernetes]
+symbol = '☸ '
+disabled = false
+format = ' [$symbol$context( \($namespace\))]($style) in '
+
+[[kubernetes.contexts]]
+context_pattern = "gke_fxei-data-platform-runtime-prd_europe-west3_default"
+context_alias = "runtime-prd"
+
+[[kubernetes.contexts]]
+context_pattern = "gke_fxei-data-platform-sandbox_europe-west3_default"
+context_alias = "sandbox"
+
+[azure]
+disabled = false
+format = 'on [$symbol$username(\($subscription\))]($style) '

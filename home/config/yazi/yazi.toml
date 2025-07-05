@@ -1,0 +1,26 @@
+[mgr]
+show_hidden = true
+linemode = "size"
+show_symlink = true
+
+[preview]
+wrap = "yes"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"
+
+# ~/.config/yazi/yazi.toml
+[[opener.bulk-rename]]
+run = 'hx "$@"'
+block = true
+
+[[open.prepend_rules]]
+name = "bulk-rename.txt"
+use = "bulk-rename"

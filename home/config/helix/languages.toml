@@ -1,0 +1,165 @@
+# rust
+[[language]]
+name = "rust"
+formatter = { command = "bash", args = ["-c", "rustfmt | dx fmt -f -"] }
+auto-format = true
+roots = ["Cargo.toml", "Cargo.lock"]
+language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+config = { checkOnSave = { command = "clippy" }, cargo = { allFeatures = true } }
+
+# [language-server.rust-analyzer.config]
+# check.command = "clippy"
+# inlayHints.bindingModeHints.enable = false
+# inlayHints.closingBraceHints.minLines = 10
+# inlayHints.closureReturnTypeHints.enable = "with_block"
+# inlayHints.discriminantHints.enable = "fieldless"
+# inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+# inlayHints.typeHints.hideClosureInitialization = false
+
+# python
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {}
+
+# [language-server.pyright.config.python.analysis]
+# typeCheckingMode = "basic"
+# autoImportCompletions = true
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language.formatter]
+command = "ruff"
+args = ["format", "--line-length", "100", "-"]
+auto-format = true
+
+# yaml
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+# formatter = { command = "prettierd", args = [".yaml"] }
+# auto-format = true
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://taskfile.dev/schema.json" = "**/Taskfile.yml"
+"https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "docker-compose*.{yml,yaml}"
+"https://json.schemastore.org/pre-commit-config.json" = ".pre-commit-config.{yml,yaml}"
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+# markdown
+[[language]]
+name = "markdown"
+language-servers = ["markdown-oxide"]
+formatter = { command = 'prettierd', args = [".md"] }
+auto-format = true
+comment-tokens = ["-", "+", "*", "- [ ]", ">"]
+
+[language-server.markdown-oxide]
+command = "markdown-oxide"
+
+[[language]]
+name = "json"
+formatter = { command = 'prettierd', args = [".json"] }
+auto-format = true
+
+[[language]]
+name = "hcl"
+language-servers = ["terraform-ls"]
+language-id = "terraform"
+
+[[language]]
+name = "tfvars"
+language-servers = ["terraform-ls"]
+language-id = "terraform-vars"
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve"]
+
+# sql
+[[language]]
+name = "sql"
+language-servers = ["sql-language-server", "sqlformat"]
+formatter = { command = "sqlformat", args = [
+  "--reindent",
+  "--indent_width",
+  "2",
+  "--keywords",
+  "upper",
+  "--identifiers",
+  "lower",
+  "-",
+] }
+auto-format = true
+
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+
+# nushell
+[[language]]
+name = "nu"
+language-servers = ["nushell-language-server"]
+
+[language-server.nushell-language-server]
+command = "nu"
+args = ["--lsp"]
+
+# helm/k8s
+[[language]]
+name = "helm"
+language-servers = ["helm_ls"]
+scope = "source.helm"
+# file-types = ["values.yaml", { suffix = "values*.yaml" }]
+roots = ["values.yaml"]
+
+# [language-server.helm-ls]
+# command = "helm_ls"
+# args = ["serve"]
+
+[[language]]
+name = "lua"
+language-servers = ["lua-language-server"]
+# formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+# toml
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+
+# nix
+[[language]]
+name = "nix"
+language-servers = ["nil"]
+file-types = ["nix"]
+formatter = { command = "nixfmt" }
+auto-format = true
+
+[[language]]
+name = "xml"
+file-types = ["xml", "svg", "xsd", "xslt", "xsl"]
+auto-format = true
+formatter = { command = "xmllint", args = ["--format", "-"] }
+language-servers = ["xml"]
+
+[language-server.xml]
+command = "lemminx-osx-aarch_64"
