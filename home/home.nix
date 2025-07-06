@@ -18,6 +18,8 @@ in {
     ./programs/gitui.nix
     ./programs/helix.nix
     ./programs/yazi.nix
+    ./programs/git.nix
+    ./programs/rust.nix
   ];
 
 }
