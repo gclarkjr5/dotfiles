@@ -20,6 +20,7 @@ in {
     ./programs/yazi.nix
     ./programs/git.nix
     ./programs/rust.nix
+    ./programs/nix.nix
   ];
 
 }
