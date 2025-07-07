@@ -21,6 +21,7 @@ in {
     ./programs/git.nix
     ./programs/rust.nix
     ./programs/nix.nix
+    ./programs/lsps.nix
   ];
 
 }
