@@ -29,7 +29,7 @@
     docker-compose
     ruff
     pre-commit
-    nixfmt
+    nixfmt-rfc-style
     buf
   ];
 
