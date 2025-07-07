@@ -131,11 +131,11 @@ $env.PATH = ($env.PATH | split row (char esep) | append '~/.azcopy/azcopy_darwin
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
 $env.PYENV_ROOT = '~/.pyenv'
 $env.PIP_REQUIRE_VIRTUALENV = 'true'
-$env.EDITOR = 'hx'
+$env.EDITOR = "hx"
 $env.DEEPL_AUTH_KEY = "97491283-fecb-4552-b4ed-43fcdf01eeec:fx"
 $env.STARSHIP_SHELL = "nu"
-$env.XDG_CONFIG_HOME = $env.HOME + "/Library/Application Support"
-$env.XDG_DATA_HOME = $env.HOME + "/Library/Application Support"
+$env.XDG_CONFIG_HOME = ('~/.config' | path expand )
+$env.XDG_DATA_HOME = ('~/.config' | path expand )
 
 # added for git key, specifically for gitui
 #ssh-add ~/.ssh/id_ecdsa
