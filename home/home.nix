@@ -3,7 +3,8 @@
 let
   username = builtins.getEnv "USER";
   homedir = "/Users/${username}";
-in {
+in
+{
   home.username = username;
   home.homeDirectory = homedir;
   # This is required and should not be changed once set

@@ -870,6 +870,7 @@ alias ll = ls -al
 alias ns = nix-shell --command $env.SHELL
 alias nd = nix-develop --command $env.SHELL
 alias nb = nix-build
+alias nix-refresh = cd ~/dotfiles ; nix run . --impure --extra-experimental-features nix-command --extra-experimental-features flakes
 
 
 $env.config.edit_mode = 'vi'

@@ -25,7 +25,6 @@ other-lines = "error"
 enable = true
 
 [keys.normal.";"]
-e = ":sh wezterm cli split-pane --left -- broot -dghips"
 k = ":sh wezterm cli split-pane --top-level -- k9s"
 v = ":sh wezterm cli split-pane --right --cwd ."
 h = ":sh wezterm cli split-pane --bottom --cwd ."
