@@ -9,14 +9,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
-      system = "aarch64-darwin"; #"x86_64-linux";  # or "aarch64-darwin" for M1 Mac, "x86_64-darwin" for Intel Mac
+      system = "aarch64-darwin"; # "x86_64-linux";  # or "aarch64-darwin" for M1 Mac, "x86_64-darwin" for Intel Mac
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       homeConfigurations.gee = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
