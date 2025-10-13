@@ -52,7 +52,7 @@ x = "keep_selections"
 
 "C-k" = "goto_file_start"
 "C-j" = "goto_last_line"
-"C-h" = "goto_line_start"
+"C-h" = "goto_first_nonwhitespace"
 "C-l" = "goto_line_end"
 C-y = [
   ':sh rm -f /tmp/unique-file',
