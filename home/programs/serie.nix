@@ -27,7 +27,7 @@ let
       rev = "v0.5.3"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+      sha256 = "HzAgPCAHOdxXPwPWPPU9VaNrVJL42TlbYMD/n7AeOH8=";
 
     };
 
@@ -44,7 +44,7 @@ let
     #   pkg-config
     # ];
     # buildInputs = [ pkgs.openssl ];
-    # doCheck = false;
+    doCheck = false;
   };
 in
 {
