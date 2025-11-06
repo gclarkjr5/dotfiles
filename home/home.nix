@@ -23,6 +23,7 @@ in
     ./programs/rust.nix
     ./programs/nix.nix
     ./programs/lsps.nix
+    ./programs/serie.nix
   ];
 
 }
