@@ -14,5 +14,6 @@
   home.packages = with pkgs; [
     rust-bin.stable."1.91.0".default
     rust-analyzer
+    bacon
   ];
 }

@@ -3,6 +3,8 @@ require("starship"):setup()
 require("git"):setup()
 -- require("gitui"):setup()
 require("folder-rules"):setup()
+-- DuckDB plugin configuration
+require("duckdb"):setup()
 
 require("full-border"):setup {
 	type = ui.Border.ROUNDED

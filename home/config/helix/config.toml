@@ -2,8 +2,12 @@ theme = "dracula_at_night"
 
 [editor]
 shell = ["nu", "-c"]
-auto-save = true
 color-modes = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 500
 
 [editor.file-picker]
 hidden = false
@@ -40,7 +44,7 @@ K = ["select_line_above"]
 H = ["select_mode", "goto_line_start", "exit_select_mode"]
 L = ["select_mode", "goto_line_end", "exit_select_mode"]
 # Print the current line's git blame information to the statusline.
-# space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 
 
 "A-j" = "join_selections"
@@ -77,5 +81,5 @@ x = "keep_selections"
 
 "C-k" = "goto_file_start"
 "C-j" = "goto_last_line"
-"C-h" = "goto_line_start"
+"C-h" = "goto_first_nonwhitespace"
 "C-l" = "goto_line_end"
