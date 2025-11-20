@@ -31,6 +31,7 @@
     pre-commit
     nixfmt-rfc-style
     buf
+    duckdb
   ];
 
 }
