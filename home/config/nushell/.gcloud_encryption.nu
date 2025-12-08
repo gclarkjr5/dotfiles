@@ -13,7 +13,7 @@
 
 def gcp_key_decrypt [environ: string, file_to_decrypt: string, decryption_destination: string] {
     (
-      cat "($file_to_decrypt)" 
+      cat $file_to_decrypt 
           # | base64 --decode 
           # | gcloud kms decrypt 
           # --project "fxei-data-platform-($environ)" 
