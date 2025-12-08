@@ -13,14 +13,14 @@
 
 def gcp_key_decrypt [environment: string, file_to_decrypt: string, decryption_destination: string] {
     (
-      cat $file_to_decrypt 
-          | base64 --decode 
-          | gcloud kms decrypt 
-          --project $"fxei-data-platform-($environment)" 
-          --location europe-west3 
-          --keyring default-europe-west3 
-          --key terraform-secrets 
-          --ciphertext-file=- 
+      cat $file_to_decrypt \
+          | base64 --decode \
+          | gcloud kms decrypt \
+          --project $"fxei-data-platform-($environment)" \
+          --location europe-west3 \
+          --keyring default-europe-west3 \
+          --key terraform-secrets \
+          --ciphertext-file=- \
           --plaintext-file $decryption_destination
     )
 }
