@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    dbeaver
-    duckdb
-    signal-desktop-bin
+    # dbeaver
+    # duckdb
+    signal-desktop
   ];
 }
