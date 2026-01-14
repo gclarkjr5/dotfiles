@@ -32,6 +32,7 @@
     nixfmt-rfc-style
     buf
     duckdb
+    gurk-rs
   ];
 
 }
