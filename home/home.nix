@@ -25,6 +25,7 @@ in
     ./programs/lsps.nix
     ./programs/serie.nix
     ./programs/general-applications.nix
+    ./programs/underlying-libs.nix
   ];
 
 }
