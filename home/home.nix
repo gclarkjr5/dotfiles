@@ -26,8 +26,8 @@ in
     # ./programs/serie.nix
     ./programs/general-applications.nix
     ./programs/underlying-libs.nix
-    # ./programs/gurk.nix
-    ./programs/oatmeal.nix
+    ./programs/gurk.nix
+    # ./programs/oatmeal.nix
   ];
 
 }
