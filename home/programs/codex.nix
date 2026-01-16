@@ -17,7 +17,7 @@ let
       mkdir -p $out/bin
       tar -xzf $src
 
-      cp codex-aarch64-apple-darwin $out/bin/
+      cp codex-aarch64-apple-darwin $out/bin/codex
       chmod +x $out/bin/codex
     '';
   };
