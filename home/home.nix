@@ -27,6 +27,7 @@ in
     ./programs/general-applications.nix
     ./programs/underlying-libs.nix
     ./programs/gurk.nix
+    ./programs/codex.nix
     # ./programs/oatmeal.nix
   ];
 
