@@ -1,55 +1,29 @@
 { config, pkgs, ... }:
 
 let
-  system = "aarch64-darwin";
-
-  rust = (pkgs.rust-bin.stable."1.91.0".default).overrideAttrs (old: {
-    meta = old.meta or { } // {
-      platforms = [ system ];
-    };
-
-    # ✅ This is the key fix
-    targetPlatforms = [ system ];
-  });
-
-  rustPlatform = pkgs.makeRustPlatform {
-    cargo = rust;
-    rustc = rust;
+  codex-tarball = pkgs.fetchurl {
+    url = "https://github.com/openai/codex/releases/download/rust-v0.86.0/codex-aarch64-apple-darwin.tar.gz";
+    sha256 = "34d3ccf4b2659644a17c8984413a08ed1594e54f1e46e60bf4d1b90a4b4d083d";
   };
 
-  codex-from-github = rustPlatform.buildRustPackage rec {
+  codex-from-github-releases = pkgs.stdenv.mkDerivation {
     pname = "codex";
-    version = "v0.86.0";
+    version = "rust-v0.86.0";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "openai";
-      repo = "codex";
-      rev = "rust-v0.86.0"; # You can replace this with a specific commit for stability
-      fetchSubmodules = true;
-      # ↓ Use `nix build` to get the right sha256 and replace this dummy
-      sha256 = "0000000000000000000000000000000000000000000000000000"; # 0000000000000000000000000000000000000000000000000000
+    src = codex-tarball;
+    dontUnpack = true;
 
-    };
+    installPhase = ''
+      mkdir -p $out/bin
+      tar -xzf $src
 
-    cargoLock = {
-      lockFile = "${src}/Cargo.lock";
-    };
-    # ↓ You'll need to fill this in with the correct hash too
-    cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-
-    # nativeBuildInputs = with pkgs; [
-    #   git
-    #   cmake
-    #   perl
-    #   pkg-config
-    # ];
-    # buildInputs = [ pkgs.openssl ];
-    # doCheck = false;
+      cp codex-aarch64-apple-darwin $out/bin/
+      chmod +x $out/bin/codex
+    '';
   };
+
 in
 {
-  home.packages = [ codex-from-github ];
-  # home.packages = [ pkgs.gitui ];
-
-  # home.file.".config/gitui/key_bindings.ron".source = ../config/gitui/key_bindings.ron;
+  home.packages = [ codex-from-github-releases ];
+  # home.file."Library/Application Support/gurk/gurk.toml".source = ../config/gurk/gurk.toml;
 }
