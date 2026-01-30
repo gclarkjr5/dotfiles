@@ -28,7 +28,7 @@ in
     ./programs/underlying-libs.nix
     ./programs/gurk.nix
     ./programs/codex.nix
-    # ./programs/oatmeal.nix
+    ./programs/general-pkgs.nix
   ];
 
 }
