@@ -29,7 +29,8 @@ in
     ./programs/gurk.nix
     ./programs/codex.nix
     ./programs/ios.nix
-    ./programs/neonctl.nix
+    ./programs/nord.nix
+    # ./programs/neonctl.nix
   ];
 
 }

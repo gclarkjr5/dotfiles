@@ -1,45 +1,25 @@
 { config, pkgs, ... }:
 
 let
-  system = "aarch64-darwin";
-
-  rust = (pkgs.rust-bin.stable."1.91.0".default).overrideAttrs (old: {
-    meta = old.meta or { } // {
-      platforms = [ system ];
-    };
-
-    # ✅ This is the key fix
-    targetPlatforms = [ system ];
-  });
-
-  rustPlatform = pkgs.makeRustPlatform {
-    cargo = rust;
-    rustc = rust;
+  exe = pkgs.fetchurl {
+    url = "https://github.com/neondatabase/neonctl/releases/download/v2.20.2/neonctl-macos-x64";
+    sha256 = "55adffe200d292710f254f1f16fef259d0416db2d922ec1d306db1c2786fd65c";
   };
 
-  neonctl-from-tag = rustPlatform.buildRustPackage rec {
+  github-releases = pkgs.stdenv.mkDerivation {
     pname = "neonctl";
     version = "v2.20.2";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "neondatabase";
-      repo = "neonctl";
-      rev = "v2.20.2"; # You can replace this with a specific commit for stability
-      fetchSubmodules = true;
-      # ↓ Use `nix build` to get the right sha256 and replace this dummy
-      # 0000000000000000000000000000000000000000000000000000
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+    src = exe;
+    dontUnpack = true;
 
-    };
-
-    cargoLock = {
-      lockFile = "${src}/Cargo.lock";
-    };
-    # ↓ You'll need to fill this in with the correct hash too
-    cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src $out/bin/neonctl
+    '';
   };
+
 in
 {
-  home.packages = [ neonctl-from-tag ];
+  home.packages = [ github-releases ];
 }
