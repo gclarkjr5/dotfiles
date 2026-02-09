@@ -1,7 +1,7 @@
-[[plugin.deps]]
-use = "gclarkjr5/gitui"
-rev = "397e9cf"
-hash = "70d6eec6166d03118e4d9576473779a6"
+# [[plugin.deps]]
+# use = "gclarkjr5/gitui"
+# rev = "397e9cf"
+# hash = "70d6eec6166d03118e4d9576473779a6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
