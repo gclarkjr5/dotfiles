@@ -140,7 +140,7 @@ $env.XDG_DATA_HOME = ('~/.config' | path expand )
 # added for git key, specifically for gitui
 #ssh-add ~/.ssh/id_ecdsa
 #ssh-add ~/.ssh/buy-bay-bitbucket
-ssh-add ~/.ssh/fedex_ssh
+# ssh-add ~/.ssh/fedex_ssh
 
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
