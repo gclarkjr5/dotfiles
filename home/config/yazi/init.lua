@@ -1,4 +1,4 @@
-require("mime-preview"):setup()
+-- require("mime-preview"):setup()
 require("starship"):setup()
 require("git"):setup()
 -- require("gitui"):setup()
