@@ -7,7 +7,11 @@ let
   };
 
   release = pkgs.stdenv.mkDerivation {
+    pname = "nordvpn";
+    # version = "";
+
     # Just downloads it. macOS doesn't allow .pkg to be installed by Nix directly.
+    # 
     home.file."Downloads/NordVPN.pkg".source = pkg;
   };
 
