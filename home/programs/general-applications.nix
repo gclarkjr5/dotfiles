@@ -2,8 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    # dbeaver
-    # duckdb
+    dbeaver-bin
     signal-desktop-bin
   ];
 }

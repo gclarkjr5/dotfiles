@@ -29,7 +29,8 @@ in
     ./programs/gurk.nix
     ./programs/codex.nix
     ./programs/ios.nix
-    ./programs/nord.nix
+    ./programs/nordvpn.nix
+    ./programs/nordpass.nix
     # ./programs/neonctl.nix
   ];
 
