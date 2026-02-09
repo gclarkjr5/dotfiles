@@ -1,14 +1,14 @@
 -- require("mime-preview"):setup()
-require("starship"):setup()
-require("git"):setup()
--- require("gitui"):setup()
-require("folder-rules"):setup()
--- DuckDB plugin configuration
-require("duckdb"):setup()
+-- require("starship"):setup()
+-- require("git"):setup()
+-- -- require("gitui"):setup()
+-- require("folder-rules"):setup()
+-- -- DuckDB plugin configuration
+-- require("duckdb"):setup()
 
-require("full-border"):setup {
-	type = ui.Border.ROUNDED
-}
+-- require("full-border"):setup {
+-- 	type = ui.Border.ROUNDED
+-- }
 
 Header:children_add(function()
 	if ya.target_family() ~= "unix" then
