@@ -887,7 +887,7 @@ alias fedex-gcloud = gcloud config set account gary.clark.osv@fedex.com
 
 source ~/.zoxide.nu
 # source ~/.custom_nu/.hosts_config.nu
-# source ~/.custom_nu/.fnm.nu
+source ~/.custom_nu/.fnm.nu
 # source ~/.custom_nu/.proxy_setup.nu
 # source ~/.custom_nu/.azure_k8s.nu
 source ~/.custom_nu/.gcloud_encryption.nu

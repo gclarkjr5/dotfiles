@@ -18,8 +18,6 @@
     gh
     k9s
     uv
-    # telnet
-    # ping
     terraform
     go-task
     vscode-extensions.llvm-org.lldb-vscode
@@ -33,7 +31,8 @@
     buf
     duckdb
     mkcert
-    # gurk-rs
+    fnm
+    mdbook
   ];
 
 }

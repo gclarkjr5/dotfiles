@@ -1,15 +1,5 @@
 { config, pkgs, ... }:
 
-# {
-#   home.packages = with pkgs; [
-#     rustc
-#     cargo
-#     clippy
-#     rustfmt
-#     rust-analyzer
-#   ];
-# }
-
 let
   rustTargets = [
     "aarch64-apple-darwin"

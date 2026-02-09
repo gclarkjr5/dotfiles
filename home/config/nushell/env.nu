@@ -132,7 +132,6 @@ $env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
 $env.PYENV_ROOT = '~/.pyenv'
 $env.PIP_REQUIRE_VIRTUALENV = 'true'
 $env.EDITOR = "hx"
-$env.DEEPL_AUTH_KEY = "97491283-fecb-4552-b4ed-43fcdf01eeec:fx"
 $env.STARSHIP_SHELL = "nu"
 $env.XDG_CONFIG_HOME = ('~/.config' | path expand )
 $env.XDG_DATA_HOME = ('~/.config' | path expand )
@@ -142,6 +141,10 @@ $env.XDG_DATA_HOME = ('~/.config' | path expand )
 #ssh-add ~/.ssh/buy-bay-bitbucket
 # ssh-add ~/.ssh/fedex_ssh
 
+# for node via fnm
+use std "path add"
+fnm env --json | from json | load-env
+path add ($env.FNM_MULTISHELL_PATH + "/bin")
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
