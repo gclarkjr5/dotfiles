@@ -8,10 +8,10 @@ use = "yazi-rs/plugins:mime-ext"
 rev = "864a021"
 hash = "5e24c167e9ae9a203a48f2a438b8c705"
 
-[[plugin.deps]]
-use = "GrzegorzKozub/mdcat"
-rev = "7b7380a"
-hash = "40c20e6c1085d1f45309b9f148bf4f6e"
+# [[plugin.deps]]
+# use = "GrzegorzKozub/mdcat"
+# rev = "7b7380a"
+# hash = "40c20e6c1085d1f45309b9f148bf4f6e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
