@@ -34,6 +34,7 @@
     fnm
     mdbook
     cargo-tauri
+    curl
   ];
 
 }

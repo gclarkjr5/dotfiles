@@ -112,11 +112,16 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+# for node via fnm
+# use std "path add"
+fnm env --json | from json | load-env
+
 # custom environment variables
-$env.PATH = ($env.PATH | split row (char esep) | append '/sbin')
-$env.PATH = ($env.PATH | split row (char esep) | append '/usr/sbin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.nix-profile/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/nix/var/nix/profiles/default/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/sbin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/usr/sbin')
+$env.PATH = ($env.PATH | split row (char esep) | append ($env.FNM_MULTISHELL_PATH + "/bin"))
 $env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/usr/local/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/opt/llvm/bin')
@@ -136,15 +141,13 @@ $env.STARSHIP_SHELL = "nu"
 $env.XDG_CONFIG_HOME = ('~/.config' | path expand )
 $env.XDG_DATA_HOME = ('~/.config' | path expand )
 
+# path add ($env.FNM_MULTISHELL_PATH + "/bin")
+
 # added for git key, specifically for gitui
 #ssh-add ~/.ssh/id_ecdsa
 #ssh-add ~/.ssh/buy-bay-bitbucket
 # ssh-add ~/.ssh/fedex_ssh
 
-# for node via fnm
-use std "path add"
-fnm env --json | from json | load-env
-path add ($env.FNM_MULTISHELL_PATH + "/bin")
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
