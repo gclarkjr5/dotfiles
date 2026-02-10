@@ -33,6 +33,7 @@
     mkcert
     fnm
     mdbook
+    cargo-tauri
   ];
 
 }
