@@ -1,7 +1,7 @@
-require("mime-preview"):setup()
+require("mime-ext"):setup()
 require("starship"):setup()
 require("git"):setup()
--- require("gitui"):setup()
+require("gitui"):setup()
 require("folder-rules"):setup()
 -- DuckDB plugin configuration
 require("duckdb"):setup()
