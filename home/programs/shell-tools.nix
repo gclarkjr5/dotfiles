@@ -21,6 +21,7 @@
     # telnet
     # ping
     terraform
+    tflint
     go-task
     vscode-extensions.llvm-org.lldb-vscode
     azure-cli
