@@ -19,22 +19,19 @@ config = { checkOnSave = { command = "clippy" }, cargo = { allFeatures = true } 
 # inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 # inlayHints.typeHints.hideClosureInitialization = false
 
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
 # python
 [[language]]
 name = "python"
-language-servers = ["pyright", "ruff"]
-
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-config = {}
-
-# [language-server.pyright.config.python.analysis]
-# typeCheckingMode = "basic"
-# autoImportCompletions = true
-
-[language-server.ruff]
-command = "ruff-lsp"
+language-servers = ["ruff", "ty"]
+auto-format = true
 
 [language.formatter]
 command = "ruff"
