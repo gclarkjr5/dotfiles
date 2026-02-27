@@ -35,6 +35,9 @@
     mdbook
     cargo-tauri
     curl
+    ngrok
+    git-cliff
+    flyctl
   ];
 
 }

@@ -20,12 +20,4 @@ in
     rust-analyzer
     bacon
   ];
-
-  # 🔧 Add a hook to install rustup
-  home.activation.installRustUp = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -x "$HOME/.cargo/bin/rustup" ]; then
-      ${pkgs.curl}/bin/curl https://sh.rustup.rs -sSf | sh -s -- -y
-    fi
-  '';
-
 }

@@ -112,29 +112,31 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
-# for node via fnm
-# use std "path add"
-fnm env --json | from json | load-env
 
 # custom environment variables
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.nix-profile/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/nix/var/nix/profiles/default/bin')
+
 $env.PATH = ($env.PATH | split row (char esep) | append '/sbin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/usr/sbin')
+
+# for node via fnm
+# use std "path add"
+fnm env --json | from json | load-env
 $env.PATH = ($env.PATH | split row (char esep) | append ($env.FNM_MULTISHELL_PATH + "/bin"))
 $env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/usr/local/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/opt/llvm/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.cargo/bin')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.local/bin')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.pyenv/shims')
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.local/bin')
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.pyenv/shims')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/Applications/Visual Studio Code.app/Contents/Resources/app/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/google-cloud-sdk/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/Applications/Docker.app/Contents/Resources/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '~/.fluvio/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.azcopy/azcopy_darwin_arm64_10.25.1')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
-$env.PYENV_ROOT = '~/.pyenv'
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
+# $env.PYENV_ROOT = '~/.pyenv'
 $env.PIP_REQUIRE_VIRTUALENV = 'true'
 $env.EDITOR = "hx"
 $env.STARSHIP_SHELL = "nu"
