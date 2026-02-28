@@ -112,30 +112,38 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+
 # custom environment variables
-$env.PATH = ($env.PATH | split row (char esep) | append '/sbin')
-$env.PATH = ($env.PATH | split row (char esep) | append '/usr/sbin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.nix-profile/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/nix/var/nix/profiles/default/bin')
+
+$env.PATH = ($env.PATH | split row (char esep) | append '/sbin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/usr/sbin')
+
+# for node via fnm
+# use std "path add"
+fnm env --json | from json | load-env
+$env.PATH = ($env.PATH | split row (char esep) | append ($env.FNM_MULTISHELL_PATH + "/bin"))
 $env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '/usr/local/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/opt/homebrew/opt/llvm/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.cargo/bin')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.local/bin')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.pyenv/shims')
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.local/bin')
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.pyenv/shims')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/Applications/Visual Studio Code.app/Contents/Resources/app/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/google-cloud-sdk/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '/Applications/Docker.app/Contents/Resources/bin')
 #$env.PATH = ($env.PATH | split row (char esep) | append '~/.fluvio/bin')
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.azcopy/azcopy_darwin_arm64_10.25.1')
-$env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
-$env.PYENV_ROOT = '~/.pyenv'
+# $env.PATH = ($env.PATH | split row (char esep) | append '~/.npm-global/bin')
+# $env.PYENV_ROOT = '~/.pyenv'
 $env.PIP_REQUIRE_VIRTUALENV = 'true'
 $env.EDITOR = "hx"
-$env.DEEPL_AUTH_KEY = "97491283-fecb-4552-b4ed-43fcdf01eeec:fx"
 $env.STARSHIP_SHELL = "nu"
 $env.XDG_CONFIG_HOME = ('~/.config' | path expand )
 $env.XDG_DATA_HOME = ('~/.config' | path expand )
+
+# path add ($env.FNM_MULTISHELL_PATH + "/bin")
 
 # added for git key, specifically for gitui
 #ssh-add ~/.ssh/id_ecdsa

@@ -18,8 +18,6 @@
     gh
     k9s
     uv
-    # telnet
-    # ping
     terraform
     tflint
     go-task
@@ -35,7 +33,13 @@
     buf
     duckdb
     mkcert
-    # gurk-rs
+    fnm
+    mdbook
+    cargo-tauri
+    curl
+    ngrok
+    git-cliff
+    flyctl
   ];
 
 }

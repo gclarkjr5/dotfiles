@@ -7,7 +7,15 @@ local act = wezterm.action
 -- This is where you actually apply your config choices
 -- Spawn nushell
 local home = os.getenv("HOME")
+
 config.default_prog = { home .. '/.nix-profile/bin/nu' }
+config.set_environment_variables = {
+  SHELL = home .. '/.nix-profile/bin/nu',
+  XDG_CONFIG_HOME = home .. '/.config',
+  XDG_DATA_HOME = home .. '/.config'
+  -- XDG_CONFIG_HOME = '~/Library/Application Support',
+  -- XDG_DATA_HOME = '~/Library/Application Support'
+}
 -- For example, changing the color scheme:
 config.color_scheme = 'Default (dark) (terminal.sexy)'
 
@@ -28,10 +36,6 @@ config.keys = {
 
 }
 
--- config.set_environment_variables = {
---   XDG_CONFIG_HOME = '~/Library/Application Support',
---   XDG_DATA_HOME = '~/Library/Application Support'
--- }
 
 -- config.key_tables = {
 -- Defines the keys that are active in our resize-pane mode.
