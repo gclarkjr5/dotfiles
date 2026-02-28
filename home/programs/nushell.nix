@@ -24,6 +24,6 @@ in
     home.file.".config/nushell/config.nu".source = "${cfg.configDir}/config.nu";
     home.file.".config/nushell/env.nu".source = "${cfg.configDir}/env.nu";
 
-    home.file.".custom_nu/nix-switch.nu".source = "${cfg.configDir}/nix-switch.nu";
+    home.file.".custom_nu/nix-switch.nu".source = "${cfg.configDir}/.nix-switch.nu";
   };
 }
