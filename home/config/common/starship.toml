@@ -3,10 +3,17 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
+format = "❄️ $custom | $all"
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[custom.hmprofile]
+command = "cat ~/.config/hm-profile/name"
+when = "test -f ~/.config/hm-profile/name"
+format = " [$output]($style)"
+style = "bold cyan"
 
 [gcloud]
 format = 'on [$symbol$account(@$domain)(\($project\))(\($active\))]($style) '

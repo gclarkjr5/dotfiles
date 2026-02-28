@@ -23,6 +23,7 @@
     go-task
     vscode-extensions.llvm-org.lldb-vscode
     azure-cli
+    google-cloud-sdk
     kubectl
     docker
     docker-compose
