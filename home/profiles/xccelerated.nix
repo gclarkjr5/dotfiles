@@ -10,6 +10,7 @@
     # xccelerated only modules here
     ../programs/ios.nix
     ../programs/nordvpn.nix
+    ../programs/ralph.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
