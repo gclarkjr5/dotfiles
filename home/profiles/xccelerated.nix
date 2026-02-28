@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
     # xccelerated only modules here
+    ../programs/ios.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;

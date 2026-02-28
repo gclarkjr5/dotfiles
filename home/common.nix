@@ -33,7 +33,6 @@ in
     ./programs/underlying-libs.nix
     ./programs/gurk.nix
     ./programs/codex.nix
-    ./programs/ios.nix
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
   ];
