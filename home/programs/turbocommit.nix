@@ -2,14 +2,14 @@
 
 let
   repo = pkgs.rustPlatform.buildRustPackage rec {
-    pname = "ralph";
-    version = "v2.6.0";
+    pname = "turbocommit";
+    version = "v3.0.0";
 
     src = pkgs.fetchFromGitHub {
-      owner = "mikeyobrien";
-      repo = "ralph-orchestrator";
-      rev = "v2.6.0";
-      sha256 = "Ld8vTdGqgnYc1ddfPtpe5XyNZ3oyjX7Eht03baHzpw4=";
+      owner = "dikkadev";
+      repo = "turboCommit";
+      rev = "v3.0.0";
+      sha256 = "0000000000000000000000000000000000000000000000000000";
     };
 
     cargoLock = {
