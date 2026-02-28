@@ -52,5 +52,5 @@ in
   home.packages = [ gitui-from-master ];
   # home.packages = [ pkgs.gitui ];
 
-  home.file.".config/gitui/key_bindings.ron".source = ../config/gitui/key_bindings.ron;
+  home.file.".config/gitui/key_bindings.ron".source = "${config.my.configRoot}/gitui/key_bindings.ron";
 }

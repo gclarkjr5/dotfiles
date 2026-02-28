@@ -35,13 +35,24 @@
       };
     in
     {
-      homeConfigurations.gee = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home/home.nix
-        ];
+      homeConfigurations = {
+        xccelerated = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home/common.nix
+            ./home/profiles/xccelerated.nix
+          ];
+        };
+
+        fedex = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home/common.nix
+            ./home/profiles/fedex.nix
+          ];
+        };
       };
 
-      defaultPackage.${system} = self.homeConfigurations.gee.activationPackage;
+      defaultPackage.${system} = self.homeConfigurations.xccelerated.activationPackage;
     };
 }

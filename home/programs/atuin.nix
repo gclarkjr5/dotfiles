@@ -60,5 +60,5 @@ in
 {
   home.packages = [ atuin-from-git ];
 
-  home.file.".config/atuin/config.toml".source = ../config/atuin/config.toml;
+  home.file.".config/atuin/config.toml".source = "${config.my.configRoot}/atuin/config.toml";
 }

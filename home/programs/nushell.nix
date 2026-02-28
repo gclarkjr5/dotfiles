@@ -1,17 +1,22 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.programs.nushellProfile;
+in
 {
-  home.packages = [ pkgs.nushell ];
+  options.programs.nushellProfile = {
+    configDir = lib.mkOption {
+      type = lib.types.path;
+      description = "Path to the Nu config directory.";
+    };
+  };
 
-  # home.sessionVariables = {
-  #   XDG_CONFIG_HOME = "${homedir}/.config";
-  #   XDG_DATA_HOME = "${homedir}/.config";
-  # };
+  config = {
+    home.packages = [ pkgs.nushell ];
 
-  home.file."Library/Application Support/nushell/config.nu".source = ../config/nushell/config.nu;
-  home.file."Library/Application Support/nushell/env.nu".source = ../config/nushell/env.nu;
-  home.file.".config/nushell/config.nu".source = ../config/nushell/config.nu;
-  home.file.".config/nushell/env.nu".source = ../config/nushell/env.nu;
-  home.file.".custom_nu/.gcloud_encryption.nu".source = ../config/nushell/.gcloud_encryption.nu;
-  home.file.".custom_nu/.fnm.nu".source = ../config/nushell/.fnm.nu;
+    home.file."Library/Application Support/nushell/config.nu".source = "${cfg.configDir}/config.nu";
+    home.file."Library/Application Support/nushell/env.nu".source = "${cfg.configDir}/env.nu";
+    home.file.".config/nushell/config.nu".source = "${cfg.configDir}/config.nu";
+    home.file.".config/nushell/env.nu".source = "${cfg.configDir}/env.nu";
+  };
 }

@@ -25,5 +25,5 @@ let
 in
 {
   home.packages = [ gurk-from-github-releases ];
-  home.file."Library/Application Support/gurk/gurk.toml".source = ../config/gurk/gurk.toml;
+  home.file."Library/Application Support/gurk/gurk.toml".source = "${config.my.configRoot}/gurk/gurk.toml";
 }

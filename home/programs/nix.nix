@@ -3,5 +3,5 @@
 {
   home.packages = [ pkgs.nix ];
 
-  home.file.".config/nix/nix.conf".source = ../config/nix/nix.conf;
+  home.file.".config/nix/nix.conf".source = "${config.my.configRoot}/nix/nix.conf";
 }

@@ -1,10 +1,16 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   username = builtins.getEnv "USER";
   homedir = "/Users/${username}";
 in
 {
+  options.my.configRoot = lib.mkOption {
+    type = lib.types.path;
+    default = ./config/common;
+    description = "Root path for shared config files.";
+  };
+
   home.username = username;
   home.homeDirectory = homedir;
   # This is required and should not be changed once set
