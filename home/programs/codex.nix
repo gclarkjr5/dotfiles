@@ -25,5 +25,4 @@ let
 in
 {
   home.packages = [ codex-from-github-releases ];
-  # home.file."Library/Application Support/gurk/gurk.toml".source = ../config/gurk/gurk.toml;
 }

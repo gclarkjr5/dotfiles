@@ -17,7 +17,7 @@ let
     rustc = rust;
   };
 
-  serie-from-git = rustPlatform.buildRustPackage rec {
+  repo = rustPlatform.buildRustPackage rec {
     pname = "serie";
     version = "v0.5.3";
 
@@ -37,19 +37,9 @@ let
     # ↓ You'll need to fill this in with the correct hash too
     cargoSha256 = "0000000000000000000000000000000000000000000000000000";
 
-    # nativeBuildInputs = with pkgs; [
-    #   git
-    #   cmake
-    #   perl
-    #   pkg-config
-    # ];
-    # buildInputs = [ pkgs.openssl ];
     doCheck = false;
   };
 in
 {
-  home.packages = [ serie-from-git ];
-  # home.packages = [ pkgs.gitui ];
-
-  # home.file.".config/gitui/key_bindings.ron".source = ../config/gitui/key_bindings.ron;
+  home.packages = [ repo ];
 }

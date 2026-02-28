@@ -3,6 +3,5 @@
 {
   home.packages = [ pkgs.wezterm ];
 
-  # home.file.".config/wezterm/wezterm.lua".source = "${config.my.configRoot}/wezterm.lua";
   home.file.".wezterm.lua".source = "${config.my.configRoot}/wezterm.lua";
 }

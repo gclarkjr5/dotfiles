@@ -6,7 +6,7 @@ let
     sha256 = "55adffe200d292710f254f1f16fef259d0416db2d922ec1d306db1c2786fd65c";
   };
 
-  github-releases = pkgs.stdenv.mkDerivation {
+  github-release = pkgs.stdenv.mkDerivation {
     pname = "neonctl";
     version = "v2.20.2";
 
@@ -21,5 +21,5 @@ let
 
 in
 {
-  home.packages = [ github-releases ];
+  home.packages = [ github-release ];
 }

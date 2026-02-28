@@ -9,7 +9,6 @@
   home.file.".config/yazi/keymap.toml".source = "${config.my.configRoot}/yazi/keymap.toml";
   home.file.".config/yazi/theme.toml".source = "${config.my.configRoot}/yazi/theme.toml";
   home.file.".config/yazi/yazi.toml".source = "${config.my.configRoot}/yazi/yazi.toml";
-  # home.file.".config/yazi/package.template.toml".source = "${config.my.configRoot}/yazi/package.template.toml";
 
   # packages
   home.file.".config/yazi/plugins/arrow.yazi/main.lua".source =
@@ -42,11 +41,4 @@
     "${config.my.configRoot}/yazi/plugins/toggle-pane.yazi/main.lua";
   home.file.".config/yazi/plugins/vcs-files.yazi/main.lua".source =
     "${config.my.configRoot}/yazi/plugins/vcs-files.yazi/main.lua";
-
-  # 🔧 Add a hook to install plugins after config is linked
-  # home.activation.installYaziPlugins = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-  #   cp "$HOME/.config/yazi/package.template.toml" "$HOME/.config/yazi/package.toml"
-  #   echo "Run ya pkg install to Install your Yazi plugins"
-  #   echo "Afterwards, uncomment your init.lua to require the plugins"
-  # '';
 }

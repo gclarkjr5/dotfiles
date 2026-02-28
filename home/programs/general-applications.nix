@@ -3,6 +3,5 @@
 {
   home.packages = with pkgs; [
     dbeaver-bin
-    signal-desktop-bin
   ];
 }

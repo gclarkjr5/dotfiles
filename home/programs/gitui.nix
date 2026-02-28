@@ -17,7 +17,7 @@ let
     rustc = rust;
   };
 
-  gitui-from-master = rustPlatform.buildRustPackage rec {
+  repo = rustPlatform.buildRustPackage rec {
     pname = "gitui";
     version = "master";
 
@@ -49,8 +49,8 @@ let
   };
 in
 {
-  home.packages = [ gitui-from-master ];
-  # home.packages = [ pkgs.gitui ];
+  home.packages = [ repo ];
 
-  home.file.".config/gitui/key_bindings.ron".source = "${config.my.configRoot}/gitui/key_bindings.ron";
+  home.file.".config/gitui/key_bindings.ron".source =
+    "${config.my.configRoot}/gitui/key_bindings.ron";
 }

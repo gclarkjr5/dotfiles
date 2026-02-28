@@ -47,13 +47,6 @@ let
     # ↓ You'll need to fill this in with the correct hash too
     cargoSha256 = "0000000000000000000000000000000000000000000000000000";
 
-    # nativeBuildInputs = with pkgs; [
-    #   git
-    #   cmake
-    #   perl
-    #   pkg-config
-    # ];
-    # buildInputs = [ pkgs.openssl ];
     doCheck = false;
   };
 in
