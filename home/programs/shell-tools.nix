@@ -19,6 +19,7 @@
     k9s
     uv
     terraform
+    tflint
     go-task
     vscode-extensions.llvm-org.lldb-vscode
     azure-cli
@@ -26,6 +27,7 @@
     docker
     docker-compose
     ruff
+    ty
     pre-commit
     nixfmt-rfc-style
     buf

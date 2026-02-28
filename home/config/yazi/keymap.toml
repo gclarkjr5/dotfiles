@@ -41,11 +41,10 @@ on = "T"
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
 
-# [[mgr.prepend_keymap]]
-# on = ["g", "i"]
-# # run = "plugin gitui --sync --args='hello world'"
-# run = "plugin gitui"
-# desc = "run gitui"
+[[mgr.prepend_keymap]]
+on = ["g", "i"]
+run = "plugin --sync gitui"
+desc = "run gitui"
 
 [[mgr.prepend_keymap]]
 on = ["g", "r"]
@@ -91,4 +90,3 @@ desc = "open with duckdb"
 on = ["g", "u"]
 run = "plugin duckdb -ui"
 desc = "open with duckdb ui"
-
