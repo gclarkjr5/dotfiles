@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.programs.gitProfile;
@@ -24,9 +29,11 @@ in
     };
   };
 
-  programs.git = {
-    settings.user.name = "Gary Clark";
-    settings.user.email = userEmail;
+  config = {
+    programs.git = {
+      settings.user.name = "Gary Clark";
+      settings.user.email = userEmail;
+    };
   };
 
 }
