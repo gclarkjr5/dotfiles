@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   username = builtins.getEnv "USER";
@@ -24,7 +29,6 @@ in
     ./programs/rust.nix
     ./programs/nix.nix
     ./programs/lsps.nix
-    # ./programs/serie.nix
     ./programs/general-applications.nix
     ./programs/underlying-libs.nix
     ./programs/gurk.nix
@@ -32,7 +36,6 @@ in
     ./programs/ios.nix
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
-    # ./programs/neonctl.nix
   ];
 
   config = {
