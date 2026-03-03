@@ -41,6 +41,7 @@
     ngrok
     git-cliff
     flyctl
+    copilot-cli
   ];
 
 }
