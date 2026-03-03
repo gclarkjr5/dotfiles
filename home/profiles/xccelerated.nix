@@ -10,7 +10,6 @@
     # xccelerated only modules here
     ../programs/ios.nix
     ../programs/nordvpn.nix
-    ../programs/ralph.nix
     ../programs/turbocommit.nix
   ];
 
