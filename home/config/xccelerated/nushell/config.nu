@@ -891,6 +891,8 @@ source ~/.zoxide.nu
 # source ~/.custom_nu/.proxy_setup.nu
 # source ~/.custom_nu/.azure_k8s.nu
 # source ~/.custom_nu/.gcloud_encryption.nu
+source ~/.custom_nu/.nix-switch.nu
+
 
 source ~/.local/share/atuin/init.nu
 

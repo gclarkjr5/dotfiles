@@ -11,7 +11,8 @@
     ../programs/ios.nix
     ../programs/nordvpn.nix
     ../programs/ralph.nix
-    ../programs/turbocommit.nix
+    ../programs/aws-cli.nix
+    # ../programs/turbocommit.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
