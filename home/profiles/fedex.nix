@@ -8,6 +8,7 @@
 {
   imports = [
     # fedex only modules here
+    ../programs/copilot.nix
   ];
 
   programs.nushellProfile.configDir = ../config/fedex/nushell;

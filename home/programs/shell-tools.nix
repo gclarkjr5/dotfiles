@@ -42,7 +42,6 @@
     ngrok
     git-cliff
     claude-code
-    copilot-cli
   ];
 
 }
