@@ -12,6 +12,7 @@
     ../programs/nordvpn.nix
     ../programs/ralph.nix
     ../programs/aws-cli.nix
+    ../programs/flyctl.nix
     # ../programs/turbocommit.nix
   ];
 

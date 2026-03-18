@@ -40,7 +40,7 @@
     curl
     ngrok
     git-cliff
-    flyctl
+    claude-code
   ];
 
 }
