@@ -29,7 +29,8 @@
     docker-compose
     ruff
     ty
-    pre-commit
+    # pre-commit
+    prek
     nixfmt-rfc-style
     buf
     duckdb
@@ -41,6 +42,7 @@
     ngrok
     git-cliff
     claude-code
+    copilot-cli
   ];
 
 }

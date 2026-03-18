@@ -35,6 +35,7 @@ in
     ./programs/codex.nix
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
+    ./programs/ralph.nix
   ];
 
   config = {

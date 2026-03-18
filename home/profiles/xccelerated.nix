@@ -14,6 +14,8 @@
     ../programs/aws-cli.nix
     ../programs/flyctl.nix
     # ../programs/turbocommit.nix
+    ../programs/ralph.nix
+    ../programs/turbocommit.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
