@@ -32,7 +32,6 @@ in
     ./programs/general-applications.nix
     ./programs/underlying-libs.nix
     ./programs/gurk.nix
-    ./programs/codex.nix
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
     ./programs/ralph.nix
