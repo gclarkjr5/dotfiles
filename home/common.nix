@@ -35,7 +35,7 @@ in
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
     ./programs/ralph.nix
-    ./scripts/helix-worktree-pane.sh
+    ./programs/helix-worktree-pane.nix
   ];
 
   config = {
