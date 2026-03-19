@@ -35,6 +35,7 @@ in
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
     ./programs/ralph.nix
+    ./programs/workmux.nix
   ];
 
   config = {
