@@ -36,6 +36,7 @@ in
     ./programs/nordpass.nix
     ./programs/ralph.nix
     ./programs/workmux.nix
+    ./programs/mdr.nix
   ];
 
   config = {

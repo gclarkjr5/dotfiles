@@ -8,7 +8,6 @@
     fzf
     bat
     jless
-    inlyne
     file
     poppler
     jq

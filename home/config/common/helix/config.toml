@@ -35,8 +35,12 @@ h = ":sh wezterm cli split-pane --bottom --cwd ."
 g = ":sh wezterm cli split-pane --right -- gitui"
 r = ":sh inlyne README.md"
 y = ":sh wezterm cli split-pane --left -- yazi"
-o = ":sh wezterm cli split-pane --right -- oatmeal"
+# o = ":sh wezterm cli split-pane --right -- oatmeal"
 d = ":sh wezterm cli split-pane --bottom -- deepl-tui"
+n = ":sh ~/.local/bin/helix-worktree-pane.sh <<< '2'"  # New worktree
+o = ":sh ~/.local/bin/helix-worktree-pane.sh <<< '3'"  # Open existing
+b = ":sh ~/.local/bin/helix-worktree-pane.sh <<< '1'"  # From branch
+l = ":sh git worktree list"                            # List worktrees
 
 [keys.normal]
 J = ["select_line_below"]
