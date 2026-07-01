@@ -38,6 +38,9 @@ in
     ./programs/mdr.nix
     ./programs/blippy.nix
     ./programs/wrkflw.nix
+    ./programs/gitlogue.nix
+    ./programs/oxker.nix
+    ./programs/kdash.nix
   ];
 
   config = {
