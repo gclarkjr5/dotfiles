@@ -37,6 +37,7 @@ in
     ./programs/ralph.nix
     ./programs/mdr.nix
     ./programs/blippy.nix
+    ./programs/wrkflw.nix
   ];
 
   config = {
