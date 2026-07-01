@@ -11,7 +11,7 @@ let
     version = "v0.1.6";
 
     src = tarball;
-    dontUnpack = true;
+    # dontUnpack = true;
 
     installPhase = ''
       mkdir -p $out/bin
