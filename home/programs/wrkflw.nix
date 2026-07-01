@@ -18,7 +18,7 @@ let
       tar -xzf $src
 
       cp $pname $out/bin/
-      chmod +x $out/bin/blippy
+      chmod +x $out/bin/$pname
     '';
   };
 
