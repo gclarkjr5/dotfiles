@@ -36,6 +36,7 @@ in
     ./programs/nordpass.nix
     ./programs/ralph.nix
     ./programs/mdr.nix
+    ./programs/blippy.nix
   ];
 
   config = {
