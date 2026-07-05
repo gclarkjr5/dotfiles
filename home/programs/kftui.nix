@@ -17,7 +17,7 @@ let
       mkdir -p $out/bin
       tar -xzf $src
 
-      cp $pname $out/bin/
+      cp kftui_macos_universal $out/bin/$pname
       chmod +x $out/bin/$pname
     '';
   };
