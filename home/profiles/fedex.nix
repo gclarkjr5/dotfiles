@@ -9,6 +9,7 @@
   imports = [
     # fedex only modules here
     ../programs/copilot.nix
+    ../programs/codex.nix
     ../programs/jira.nix
   ];
 
