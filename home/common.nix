@@ -42,6 +42,7 @@ in
     ./programs/gitlogue.nix
     ./programs/oxker.nix
     ./programs/kdash.nix
+    ./programs/tuicr.nix
   ];
 
   config = {
