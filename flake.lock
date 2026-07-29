@@ -40,7 +40,8 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay",
+        "workmux": "workmux"
       }
     },
     "rust-overlay": {
@@ -60,6 +61,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "workmux": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773954258,
+        "narHash": "sha256-peykEJ9bYlhcmmo1pdmyDbIjqzXImjO3v5SLyoiQkKQ=",
+        "owner": "raine",
+        "repo": "workmux",
+        "rev": "1a9b2d88954f9be09e8cd439f4f4d0b2fc988f8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "raine",
+        "repo": "workmux",
         "type": "github"
       }
     }

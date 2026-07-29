@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    workmux = {
+      url = "github:raine/workmux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nixpkgs,
       home-manager,
       rust-overlay,
+      workmux,
       ...
     }:
     let
@@ -42,6 +48,9 @@
             ./home/common.nix
             ./home/profiles/xccelerated.nix
           ];
+          extraSpecialArgs = {
+            inherit workmux;
+          };
         };
 
         fedex = home-manager.lib.homeManagerConfiguration {
@@ -50,6 +59,9 @@
             ./home/common.nix
             ./home/profiles/fedex.nix
           ];
+          extraSpecialArgs = {
+            inherit workmux;
+          };
         };
       };
 

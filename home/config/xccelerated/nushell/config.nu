@@ -884,6 +884,8 @@ $env.config.edit_mode = 'vi'
 # alias at_home = configure_proxy at_home
 alias xcc-gcloud = gcloud config set account gclark@xccelerated.io
 # alias fedex-gcloud = gcloud config set account gary.clark.osv@fedex.com
+alias aerospace-server = ^open ~/.nix-profile/Applications/AeroSpace.app
+
 
 source ~/.zoxide.nu
 # source ~/.custom_nu/.hosts_config.nu

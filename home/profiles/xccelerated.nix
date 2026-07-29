@@ -16,6 +16,7 @@
     # ../programs/turbocommit.nix
     ../programs/ralph.nix
     ../programs/turbocommit.nix
+    ../programs/go.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;

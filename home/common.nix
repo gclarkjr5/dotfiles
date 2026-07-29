@@ -35,13 +35,13 @@ in
     ./programs/nordvpn.nix
     ./programs/nordpass.nix
     ./programs/ralph.nix
+    ./programs/workmux.nix
     ./programs/mdr.nix
     ./programs/blippy.nix
     ./programs/wrkflw.nix
     ./programs/gitlogue.nix
     ./programs/oxker.nix
     ./programs/kdash.nix
-    ./programs/kftui.nix
   ];
 
   config = {

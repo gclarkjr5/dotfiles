@@ -19,6 +19,12 @@ config.set_environment_variables = {
 -- For example, changing the color scheme:
 config.color_scheme = 'Default (dark) (terminal.sexy)'
 
+-- workmux configuration: connect to mux server on startup
+config.default_gui_startup_args = { 'connect', 'unix' }
+config.unix_domains = {
+  { name = 'unix' },
+}
+
 config.keys = {
   { key = 'h',          mods = 'CTRL|SUPER',  action = act.ActivateTabRelative(-1) },
   { key = 'l',          mods = 'CTRL|SUPER',  action = act.ActivateTabRelative(1) },
@@ -33,6 +39,8 @@ config.keys = {
   { key = 'UpArrow',    mods = 'SHIFT|SUPER', action = act.ActivatePaneDirection 'Up' },
   { key = 'DownArrow',  mods = 'SHIFT|SUPER', action = act.ActivatePaneDirection 'Down' },
   { key = 'x',          mods = 'SUPER',       action = act.CloseCurrentPane { confirm = false } },
+  -- workmux: spawn new tabs in CurrentPaneDomain for proper state management
+  { key = 't',          mods = 'SUPER',       action = act.SpawnTab('CurrentPaneDomain') },
 
 }
 
@@ -77,5 +85,22 @@ config.keys = {
 -- { key = 'j', action = act.ActivatePaneDirection 'Down' },
 -- },
 -- }
+-- workmux: enable cross-workspace navigation
+wezterm.on("user-var-changed", function(window, pane, name, value)
+  if name == "workmux-switch-pane" then
+    local data = wezterm.json_parse(value)
+    window:perform_action(
+      wezterm.action.SwitchToWorkspace({ name = data.workspace }),
+      pane
+    )
+    for _, p in ipairs(window:active_tab():panes()) do
+      if p:pane_id() == data.pane_id then
+        p:activate()
+        break
+      end
+    end
+  end
+end)
+
 -- and finally, return the configuration to wezterm
 return config
