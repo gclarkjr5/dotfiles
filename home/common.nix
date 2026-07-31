@@ -43,6 +43,7 @@ in
     ./programs/oxker.nix
     ./programs/kdash.nix
     ./programs/tuicr.nix
+    ./programs/mmdc.nix
   ];
 
   config = {
