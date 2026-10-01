@@ -12,6 +12,7 @@
     ../programs/codex.nix
     ../programs/jira.nix
     ../programs/corporate-ca.nix
+    ../programs/sshfs.nix
   ];
 
   programs.corporateCa = {
