@@ -11,7 +11,19 @@
     ../programs/copilot.nix
     ../programs/codex.nix
     ../programs/jira.nix
+    ../programs/corporate-ca.nix
   ];
+
+  programs.corporateCa = {
+    enable = true;
+    bundlePath = "${config.home.homeDirectory}/.local/share/certs/fedex-ca-bundle.pem";
+    certificateNames = [
+      "FedEx Corporation Root CA"
+      "FedEx Corporation Issuing CA"
+      "FedExAVXRootCA"
+      "FedExAVXIntermediateCA"
+    ];
+  };
 
   programs.nushellProfile.configDir = ../config/fedex/nushell;
   programs.gitProfile.hostname = "MAC-K03793KGLV";
