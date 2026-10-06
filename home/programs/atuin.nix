@@ -4,16 +4,11 @@
   ...
 }:
 
-# {
-#   home.packages = [ pkgs.atuin ];
-
-#   home.file.".config/atuin/config.toml".source = ../config/atuin/config.toml;
-# }
-
 let
   system = "aarch64-darwin";
 
-  rust = (pkgs.rust-bin.stable."1.91.0".default).overrideAttrs (old: {
+  # atuin v18.23.0 pins rust-toolchain channel 1.98.0 (rust-version = 1.95.0)
+  rust = (pkgs.rust-bin.stable."1.98.0".default).overrideAttrs (old: {
     meta = old.meta or { } // {
       platforms = [ system ];
     };
@@ -29,15 +24,15 @@ let
 
   atuin-from-git = rustPlatform.buildRustPackage rec {
     pname = "atuin";
-    version = "v18.10.0";
+    version = "v18.23.0";
 
     src = pkgs.fetchFromGitHub {
       owner = "atuinsh";
       repo = "atuin";
-      rev = "v18.10.0"; # You can replace this with a specific commit for stability
+      rev = "v18.23.0"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
-      sha256 = "bfSa3RtVXxHt3usDqqpE/oXKKDUZOrf+tD9uL59fr6M=";
+      sha256 = "NBn7C9ssLSXYrHWv5qWM5dZ2E8URbRJZOOCvHaNgxW4=";
 
     };
 
