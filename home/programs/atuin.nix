@@ -22,7 +22,7 @@ let
     rustc = rust;
   };
 
-  atuin-from-git = rustPlatform.buildRustPackage rec {
+  pkg-from-git = rustPlatform.buildRustPackage rec {
     pname = "atuin";
     version = "v18.23.0";
 
@@ -46,7 +46,7 @@ let
   };
 in
 {
-  home.packages = [ atuin-from-git ];
+  home.packages = [ pkg-from-git ];
 
   home.file.".config/atuin/config.toml".source = "${config.my.configRoot}/atuin/config.toml";
 }

@@ -3,7 +3,7 @@
 let
   system = "aarch64-darwin";
 
-  rust = (pkgs.rust-bin.stable."1.91.0".default).overrideAttrs (old: {
+  rust = (pkgs.rust-bin.stable."1.98.0".default).overrideAttrs (old: {
     meta = old.meta or { } // {
       platforms = [ system ];
     };
@@ -17,18 +17,19 @@ let
     rustc = rust;
   };
 
-  repo = rustPlatform.buildRustPackage rec {
+  pkg-from-git = rustPlatform.buildRustPackage rec {
     pname = "gitui";
-    version = "master";
+    version = "v0.28.1";
 
     src = pkgs.fetchFromGitHub {
       owner = "gitui-org";
       repo = "gitui";
-      rev = "cb17cfe10540c66252e9f06753dbe17031736beb"; # You can replace this with a specific commit for stability
+      rev = "v0.28.1";
+      # rev = "cb17cfe10540c66252e9f06753dbe17031736beb"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "JT5GqxvENSxeteZ6j+DpNP9dgcko1UGNFWdZRu1M5oA=";
+      sha256 = "IyDms4ke5evtSjFZrWEy0AascA0g9rG/a9RjbBNzZwg=";
 
     };
 
@@ -49,7 +50,7 @@ let
   };
 in
 {
-  home.packages = [ repo ];
+  home.packages = [ pkg-from-git ];
 
   home.file.".config/gitui/key_bindings.ron".source =
     "${config.my.configRoot}/gitui/key_bindings.ron";
