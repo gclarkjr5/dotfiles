@@ -25,11 +25,12 @@ let
       owner = "stevenpollack";
       repo = "gitui";
       # rev = "v0.28.1";
-      rev = "7e96b0f3386c01f347ea75490055259771ac18a0"; # You can replace this with a specific commit for stability
+
+      rev = "743bb3c14659fddd217c4c0a82539f9884b651fc"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "bSKWKhGNB1E6IvTUM3nh/vME1JxLM5QE7egdmcfv9Uw=";
+      sha256 = "0000000000000000000000000000000000000000000000000000";
 
     };
 

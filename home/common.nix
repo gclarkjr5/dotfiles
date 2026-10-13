@@ -44,6 +44,7 @@ in
     ./programs/tuicr.nix
     ./programs/mmdc.nix
     ./programs/presenterm.nix
+    ./programs/worktrunk.nix
   ];
 
   config = {
