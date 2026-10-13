@@ -19,17 +19,17 @@ let
 
   pkg-from-git = rustPlatform.buildRustPackage rec {
     pname = "gitui";
-    version = "v0.28.1";
+    version = "7e96b0f3386c01f347ea75490055259771ac18a0";
 
     src = pkgs.fetchFromGitHub {
-      owner = "gitui-org";
+      owner = "stevenpollack";
       repo = "gitui";
-      rev = "v0.28.1";
-      # rev = "cb17cfe10540c66252e9f06753dbe17031736beb"; # You can replace this with a specific commit for stability
+      # rev = "v0.28.1";
+      rev = "7e96b0f3386c01f347ea75490055259771ac18a0"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "IyDms4ke5evtSjFZrWEy0AascA0g9rG/a9RjbBNzZwg=";
+      sha256 = "bSKWKhGNB1E6IvTUM3nh/vME1JxLM5QE7egdmcfv9Uw=";
 
     };
 
