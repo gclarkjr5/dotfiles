@@ -45,6 +45,7 @@ in
     ./programs/mmdc.nix
     ./programs/presenterm.nix
     ./programs/worktrunk.nix
+    ./programs/just.nix
   ];
 
   config = {

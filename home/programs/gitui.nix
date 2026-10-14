@@ -30,7 +30,7 @@ let
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+      sha256 = "Hl1pUJ+m+b29msOZIQxi0GiR4Diz/Ta/lL1FjbrPo1U=";
 
     };
 

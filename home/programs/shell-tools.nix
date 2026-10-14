@@ -41,6 +41,7 @@
     ngrok
     git-cliff
     claude-code
+    hadolint
   ];
 
 }

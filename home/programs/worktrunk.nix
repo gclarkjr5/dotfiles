@@ -32,7 +32,7 @@ let
       rev = "v0.80.0"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+      sha256 = "wT9V9A6ty4yCp/wJ9F92AC5SrsQzemEb8/d2NSjH/SY=";
 
     };
 
