@@ -13,10 +13,11 @@
     ../programs/ralph.nix
     ../programs/aws-cli.nix
     ../programs/flyctl.nix
-    # ../programs/turbocommit.nix
     ../programs/ralph.nix
     ../programs/turbocommit.nix
     ../programs/go.nix
+    ../programs/presenterm.nix
+    ../programs/opentofu.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
