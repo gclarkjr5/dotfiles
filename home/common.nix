@@ -46,6 +46,7 @@ in
     ./programs/presenterm.nix
     ./programs/worktrunk.nix
     ./programs/just.nix
+    ./programs/meetily.nix
   ];
 
   config = {
