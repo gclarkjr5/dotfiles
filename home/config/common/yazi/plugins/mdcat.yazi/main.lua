@@ -24,7 +24,7 @@ function M:peek(job)
   until count >= job.skip + job.area.h
   child:start_kill()
   if job.skip > 0 and count < job.skip + job.area.h then
-    ya.manager_emit('peek', {
+    ya.emit('peek', {
       tostring(math.max(0, count - job.area.h)),
       only_if = job.file.url,
       upper_bound = '',
@@ -37,7 +37,7 @@ end
 function M:seek(job)
   local h = cx.active.current.hovered
   if h and h.url == job.file.url then
-    ya.manager_emit('peek', {
+    ya.emit('peek', {
       math.max(0, cx.active.preview.skip + job.units),
       only_if = job.file.url,
     })
