@@ -1,4 +1,4 @@
---- @since 25.2.26
+--- @since 25.12.29
 
 local hovered = ya.sync(function()
 	local h = cx.active.current.hovered
@@ -16,7 +16,7 @@ end)
 local function prompt()
 	return ya.input {
 		title = "Smart filter:",
-		pos = { "center", w = 50 },
+		pos = { "top-center", y = 2, w = 50 },
 		realtime = true,
 		debounce = 0.1,
 	}
@@ -42,6 +42,7 @@ local function entry()
 		elseif event == 1 then
 			ya.emit("escape", { filter = true })
 			ya.emit(h.is_dir and "enter" or "open", { h.url })
+			break
 		end
 	end
 end
