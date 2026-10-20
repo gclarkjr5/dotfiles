@@ -1,8 +1,61 @@
 { config, pkgs, ... }:
 
+let
+  system = "aarch64-darwin";
+
+  rust = (pkgs.rust-bin.stable."1.98.0".default).overrideAttrs (old: {
+    meta = old.meta or { } // {
+      platforms = [ system ];
+    };
+
+    # ✅ This is the key fix
+    targetPlatforms = [ system ];
+  });
+
+  rustPlatform = pkgs.makeRustPlatform {
+    cargo = rust;
+    rustc = rust;
+  };
+
+  pkg-from-git = rustPlatform.buildRustPackage rec {
+    pname = "yazi";
+    version = "v26.9.1";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "sxyazi";
+      repo = "yazi";
+      # rev = "v0.28.1";
+
+      rev = "v26.9.1"; # You can replace this with a specific commit for stability
+      fetchSubmodules = true;
+      # ↓ Use `nix build` to get the right sha256 and replace this dummy
+      # 0000000000000000000000000000000000000000000000000000
+      sha256 = "/8j4bEbT8DR/xlWtt62FXVyeHyWtBlvV8Rq0VbtY6ms=";
+
+    };
+
+    cargoLock = {
+      lockFile = "${src}/Cargo.lock";
+      outputHashes = {
+        "ratatui-core-0.1.2" = "sha256-wbbG0PbGolztosfuXzVZ6MvgbDRfp8UqmRjvbCDyZFg=";
+      };
+    };
+    # ↓ You'll need to fill this in with the correct hash too
+    cargoSha256 = "0000000000000000000000000000000000000000000000000000";
+
+    nativeBuildInputs = with pkgs; [
+      git
+      cmake
+      perl
+      pkg-config
+    ];
+    buildInputs = [ pkgs.openssl ];
+    doCheck = false;
+  };
+in
 {
   home.packages = [
-    pkgs.yazi
+    pkg-from-git
   ];
 
   home.file.".config/yazi/init.lua".source = "${config.my.configRoot}/yazi/init.lua";
