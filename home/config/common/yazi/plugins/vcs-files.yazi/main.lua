@@ -15,8 +15,8 @@ local function entry()
 
 	local id = ya.id("ft")
 	local cwd = root:into_search("Git changes")
-	ya.mgr_emit("cd", { Url(cwd) })
-	ya.mgr_emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = {} }) })
+	ya.emit("cd", { Url(cwd) })
+	ya.emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = {} }) })
 
 	local files = {}
 	for line in output.stdout:gmatch("[^\r\n]+") do
@@ -26,8 +26,8 @@ local function entry()
 			files[#files + 1] = File { url = url, cha = cha }
 		end
 	end
-	ya.mgr_emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = files }) })
-	ya.mgr_emit("update_files", { op = fs.op("done", { id = id, url = cwd, cha = Cha { kind = 16 } }) })
+	ya.emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = files }) })
+	ya.emit("update_files", { op = fs.op("done", { id = id, url = cwd, cha = Cha { kind = 16 } }) })
 end
 
 return { entry = entry }

@@ -7,7 +7,7 @@
 
 local save = ya.sync(function(st, _cwd, output)
     st.output = output
-    ya.render()
+    ui.render()
 end)
 
 -- Helper function for accessing the `config_file` state variable
@@ -89,7 +89,7 @@ return {
             if st.cwd ~= cwd then
                 st.cwd = cwd
 
-                ya.manager_emit("plugin", {
+                ya.emit("plugin", {
                     st._id,
                     ya.quote(tostring(cwd), true),
                 })

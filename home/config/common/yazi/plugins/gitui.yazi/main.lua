@@ -12,7 +12,7 @@ return {
         timeout = 5,
       })
     else
-      local _permit = ui.hide and ui.hide() or ya.hide()
+      local _permit = ui.hide()
       local child, err_code = Command("gitui")
         :stdin(Command.INHERIT)
         :stdout(Command.INHERIT)
