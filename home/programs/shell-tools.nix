@@ -42,6 +42,7 @@
     git-cliff
     claude-code
     hadolint
+    yq-go
   ];
 
 }
