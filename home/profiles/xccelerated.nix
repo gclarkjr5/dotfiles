@@ -18,6 +18,7 @@
     ../programs/go.nix
     ../programs/presenterm.nix
     ../programs/opentofu.nix
+    ../programs/basecamp-cli.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
