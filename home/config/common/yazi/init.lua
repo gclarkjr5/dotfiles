@@ -7,7 +7,7 @@ require("folder-rules"):setup()
 require("duckdb"):setup()
 
 require("full-border"):setup {
-	type = ui.Border.ROUNDED
+	set = "rounded"
 }
 
 Header:children_add(function()

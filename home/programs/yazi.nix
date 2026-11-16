@@ -3,7 +3,7 @@
 let
   system = "aarch64-darwin";
 
-  rust = (pkgs.rust-bin.stable."1.98.0".default).overrideAttrs (old: {
+  rust = (pkgs.rust-bin.stable."1.99.0".default).overrideAttrs (old: {
     meta = old.meta or { } // {
       platforms = [ system ];
     };
@@ -19,18 +19,17 @@ let
 
   pkg-from-git = rustPlatform.buildRustPackage rec {
     pname = "yazi";
-    version = "v26.9.1";
+    version = "c2c268dc42cde0538e7e87b1904df30ea47dbd9e";
 
     src = pkgs.fetchFromGitHub {
       owner = "sxyazi";
       repo = "yazi";
-      # rev = "v0.28.1";
 
-      rev = "v26.9.1"; # You can replace this with a specific commit for stability
+      rev = "c2c268dc42cde0538e7e87b1904df30ea47dbd9e"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "/8j4bEbT8DR/xlWtt62FXVyeHyWtBlvV8Rq0VbtY6ms=";
+      sha256 = "2onmuoHgkSrfwUpZnaxFuPMgyUUlicXu70jN1y5/mWM=";
 
     };
 
@@ -62,8 +61,9 @@ in
   home.file.".config/yazi/keymap.toml".source = "${config.my.configRoot}/yazi/keymap.toml";
   home.file.".config/yazi/theme.toml".source = "${config.my.configRoot}/yazi/theme.toml";
   home.file.".config/yazi/yazi.toml".source = "${config.my.configRoot}/yazi/yazi.toml";
+  home.file.".config/yazi/package.toml".source = "${config.my.configRoot}/yazi/package.toml";
 
-  # packages
+  # packages (custom plugins + package manager)
   home.file.".config/yazi/plugins/arrow.yazi/main.lua".source =
     "${config.my.configRoot}/yazi/plugins/arrow.yazi/main.lua";
   home.file.".config/yazi/plugins/duckdb.yazi/main.lua".source =
@@ -82,6 +82,10 @@ in
     "${config.my.configRoot}/yazi/plugins/mdcat.yazi/main.lua";
   home.file.".config/yazi/plugins/mime-ext.yazi/main.lua".source =
     "${config.my.configRoot}/yazi/plugins/mime-ext.yazi/main.lua";
+  home.file.".config/yazi/plugins/mime-ext.yazi/local.lua".source =
+    "${config.my.configRoot}/yazi/plugins/mime-ext.yazi/local.lua";
+  home.file.".config/yazi/plugins/mime-ext.yazi/remote.lua".source =
+    "${config.my.configRoot}/yazi/plugins/mime-ext.yazi/remote.lua";
   home.file.".config/yazi/plugins/parent-arrow.yazi/main.lua".source =
     "${config.my.configRoot}/yazi/plugins/parent-arrow.yazi/main.lua";
   home.file.".config/yazi/plugins/smart-enter.yazi/main.lua".source =

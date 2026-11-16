@@ -112,6 +112,176 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+# Sync yazi plugins from package manager to dotfiles
+def yazi-sync [] {
+	print "🔄 Syncing yazi plugins..."
+
+	let dotfiles = "~/dotfiles" | path expand
+	let config_dir = "~/.config/yazi" | path expand
+
+	# Save package.toml content (symlink will be removed)
+	let package_file = $config_dir | path join "package.toml"
+	let package_backup = "/tmp/yazi-package.toml.backup"
+	if ($package_file | path exists) {
+		print "📦 Saving package.toml content..."
+		# Remove old backup if exists
+		if ($package_backup | path exists) {
+			rm -f $package_backup
+		}
+		# Read raw file content
+		bash -c $"cat ($package_file) > ($package_backup)"
+	}
+
+	# Remove symlinked plugins and package.toml (read-only from nix)
+	print "🗑️  Removing symlinked plugins and package.toml..."
+	let plugins_dir = $config_dir | path join "plugins"
+	if ($plugins_dir | path exists) {
+		rm -rf $plugins_dir
+	}
+	if ($package_file | path exists) {
+		rm -f $package_file
+	}
+
+	# Restore package.toml as real file
+	if ($package_backup | path exists) {
+		print "📋 Restoring package.toml..."
+		cp $package_backup $package_file
+	}
+
+	# Run ya pkg upgrade
+	print "⬇️  Running ya pkg upgrade..."
+	ya pkg upgrade
+
+	# Check if plugins were installed
+	if not ($plugins_dir | path exists) {
+		print "❌ Error: No plugins directory created after ya pkg upgrade"
+		return
+	}
+
+	# Copy updated files back to dotfiles
+	print "📋 Copying plugins to dotfiles..."
+	let target_dir = $dotfiles | path join "home/config/common/yazi/plugins"
+
+	# Remove old plugin files in dotfiles first
+	if ($target_dir | path exists) {
+		rm -rf $target_dir
+	}
+	mkdir $target_dir
+
+	# Copy all plugins using bash
+	bash -c $"cp -r ($plugins_dir)/* ($target_dir)/"
+
+	# Copy package.toml to dotfiles
+	print "📋 Copying package.toml to dotfiles..."
+	let package_file = $config_dir | path join "package.toml"
+	let target_package = $dotfiles | path join "home/config/common/yazi/package.toml"
+	if ($package_file | path exists) {
+		# Remove old file first
+		if ($target_package | path exists) {
+			rm -f $target_package
+		}
+		cp $package_file $target_package
+	} else {
+		print "⚠️  Warning: package.toml not found"
+	}
+
+	# Clean up real files so nix can create symlinks
+	print "🧹 Cleaning up real files for nix..."
+	if ($plugins_dir | path exists) {
+		rm -rf $plugins_dir
+	}
+	if ($package_file | path exists) {
+		rm -f $package_file
+	}
+
+	print "✅ Yazi plugins synced! Run 'nix-switch fedex' to rebuild."
+}
+
+# Add a new yazi plugin
+def yazi-add [plugin: string] {
+	print $"🔄 Adding yazi plugin: ($plugin)..."
+
+	let dotfiles = "~/dotfiles" | path expand
+	let config_dir = "~/.config/yazi" | path expand
+
+	# Save package.toml content (symlink will be removed)
+	let package_file = $config_dir | path join "package.toml"
+	let package_backup = "/tmp/yazi-package.toml.backup"
+	if ($package_file | path exists) {
+		print "📦 Saving package.toml content..."
+		# Remove old backup if exists
+		if ($package_backup | path exists) {
+			rm -f $package_backup
+		}
+		# Read raw file content
+		bash -c $"cat ($package_file) > ($package_backup)"
+	}
+
+	# Remove symlinked plugins and package.toml (read-only from nix)
+	print "🗑️  Removing symlinked plugins and package.toml..."
+	let plugins_dir = $config_dir | path join "plugins"
+	if ($plugins_dir | path exists) {
+		rm -rf $plugins_dir
+	}
+	if ($package_file | path exists) {
+		rm -f $package_file
+	}
+
+	# Restore package.toml as real file
+	if ($package_backup | path exists) {
+		print "📋 Restoring package.toml..."
+		cp $package_backup $package_file
+	}
+
+	# Add the plugin
+	print $"⬇️  Running ya pkg add ($plugin)..."
+	ya pkg add $plugin
+
+	# Check if plugins were installed
+	if not ($plugins_dir | path exists) {
+		print "❌ Error: No plugins directory created after ya pkg add"
+		return
+	}
+
+	# Copy updated files back to dotfiles
+	print "📋 Copying plugins to dotfiles..."
+	let target_dir = $dotfiles | path join "home/config/common/yazi/plugins"
+
+	# Remove old plugin files in dotfiles first
+	if ($target_dir | path exists) {
+		rm -rf $target_dir
+	}
+	mkdir $target_dir
+
+	# Copy all plugins using bash
+	bash -c $"cp -r ($plugins_dir)/* ($target_dir)/"
+
+	# Copy package.toml to dotfiles
+	print "📋 Copying package.toml to dotfiles..."
+	let package_file = $config_dir | path join "package.toml"
+	let target_package = $dotfiles | path join "home/config/common/yazi/package.toml"
+	if ($package_file | path exists) {
+		# Remove old file first
+		if ($target_package | path exists) {
+			rm -f $target_package
+		}
+		cp $package_file $target_package
+	} else {
+		print "⚠️  Warning: package.toml not found"
+	}
+
+	# Clean up real files so nix can create symlinks
+	print "🧹 Cleaning up real files for nix..."
+	if ($plugins_dir | path exists) {
+		rm -rf $plugins_dir
+	}
+	if ($package_file | path exists) {
+		rm -f $package_file
+	}
+
+	print "✅ Plugin added and synced! Run 'nix-switch fedex' to rebuild."
+}
+
 
 # custom environment variables
 $env.PATH = ($env.PATH | split row (char esep) | append '~/.nix-profile/bin')
