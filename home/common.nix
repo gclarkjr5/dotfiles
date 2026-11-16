@@ -27,6 +27,7 @@ in
     ./programs/yazi.nix
     ./programs/git.nix
     ./programs/rust.nix
+    ./programs/direnv.nix
     ./programs/nix.nix
     ./programs/lsps.nix
     ./programs/general-applications.nix
