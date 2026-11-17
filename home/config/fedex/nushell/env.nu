@@ -112,6 +112,16 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+def --env g [...args] {
+	let tmp = (mktemp -t "gitui-cwd.XXXXXX")
+	gitui ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
+
 # Sync yazi plugins from package manager to dotfiles
 def yazi-sync [] {
 	print "🔄 Syncing yazi plugins..."

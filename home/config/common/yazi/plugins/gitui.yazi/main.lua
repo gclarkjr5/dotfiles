@@ -13,7 +13,10 @@ return {
       })
     else
       local _permit = ui.hide()
+      -- gitui writes the worktree/submodule it switched to here on exit
+      local cwd_file = os.tmpname()
       local child, err_code = Command("gitui")
+        :arg({ "--cwd-file", cwd_file })
         :stdin(Command.INHERIT)
         :stdout(Command.INHERIT)
         :stderr(Command.PIPED)
@@ -35,6 +38,17 @@ return {
           level = "error",
           timeout = 5,
         })
+      end
+
+      local f = io.open(cwd_file, "r")
+      local dir = f and f:read("*a"):gsub("%s+$", "") or ""
+      if f then
+        f:close()
+      end
+      os.remove(cwd_file)
+
+      if dir ~= "" then
+        ya.emit("cd", { dir, raw = true })
       end
     end
   end,
