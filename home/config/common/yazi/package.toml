@@ -38,5 +38,10 @@ use = "wylie102/duckdb"
 rev = "3f8c863"
 hash = "87b9233a74325e95011670ed20bbd0d4"
 
+[[plugin.deps]]
+use = "coder0x6675/osc7"
+rev = "ae73046"
+hash = "4f73595837992eeefcb525c0a95b92ba"
+
 [flavor]
 deps = []

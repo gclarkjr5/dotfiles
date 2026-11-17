@@ -19,17 +19,17 @@ let
 
   pkg-from-git = rustPlatform.buildRustPackage rec {
     pname = "yazi";
-    version = "c2c268dc42cde0538e7e87b1904df30ea47dbd9e";
+    version = "v26.9.1";
 
     src = pkgs.fetchFromGitHub {
       owner = "sxyazi";
       repo = "yazi";
 
-      rev = "c2c268dc42cde0538e7e87b1904df30ea47dbd9e"; # You can replace this with a specific commit for stability
+      rev = "v26.9.1"; # You can replace this with a specific commit for stability
       fetchSubmodules = true;
       # ↓ Use `nix build` to get the right sha256 and replace this dummy
       # 0000000000000000000000000000000000000000000000000000
-      sha256 = "2onmuoHgkSrfwUpZnaxFuPMgyUUlicXu70jN1y5/mWM=";
+      sha256 = "/8j4bEbT8DR/xlWtt62FXVyeHyWtBlvV8Rq0VbtY6ms=";
 
     };
 
@@ -98,4 +98,6 @@ in
     "${config.my.configRoot}/yazi/plugins/toggle-pane.yazi/main.lua";
   home.file.".config/yazi/plugins/vcs-files.yazi/main.lua".source =
     "${config.my.configRoot}/yazi/plugins/vcs-files.yazi/main.lua";
+  home.file.".config/yazi/plugins/osc7.yazi/main.lua".source =
+    "${config.my.configRoot}/yazi/plugins/osc7.yazi/main.lua";
 }

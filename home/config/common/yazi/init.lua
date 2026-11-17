@@ -5,6 +5,7 @@ require("gitui"):setup()
 require("folder-rules"):setup()
 -- DuckDB plugin configuration
 require("duckdb"):setup()
+require("osc7"):setup()
 
 require("full-border"):setup {
 	set = "rounded"
