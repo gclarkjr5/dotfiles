@@ -11,7 +11,6 @@
     ../programs/ios.nix
     ../programs/nordvpn.nix
     ../programs/ralph.nix
-    ../programs/aws-cli.nix
     ../programs/flyctl.nix
     ../programs/ralph.nix
     ../programs/turbocommit.nix

@@ -21,6 +21,7 @@
     tflint
     go-task
     vscode-extensions.llvm-org.lldb-vscode
+    awscli2
     azure-cli
     google-cloud-sdk
     kubectl
