@@ -44,6 +44,7 @@
     claude-code
     hadolint
     yq-go
+    git-lfs
   ];
 
 }

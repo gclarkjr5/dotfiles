@@ -18,6 +18,7 @@
     ../programs/presenterm.nix
     ../programs/opentofu.nix
     ../programs/basecamp-cli.nix
+    ../programs/nordvpn.nix
   ];
 
   programs.nushellProfile.configDir = ../config/xccelerated/nushell;
